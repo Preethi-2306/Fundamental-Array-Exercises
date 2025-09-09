@@ -1,0 +1,70 @@
+//Traversing an Array
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];   
+    for (int i = 0; i < n; i++) {
+        printf("Enter number: ");
+        scanf("%d", &arr[i]);
+    }
+    printf("You entered: ");
+    for (int j = 0; j < n; j++) {   
+        printf("%d ", arr[j]);
+    }
+    return 0;
+}
+
+//Inserting an element in the Array
+#include <stdio.h>
+
+int main() {
+    int a[100], n, value, pos;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter position (1 to %d): ", n+1);
+    scanf("%d", &pos);
+
+    printf("Enter value to insert: ");
+    scanf("%d", &value);
+ 
+    // shifting the  elements to the right
+    for (int i = n; i >= pos; i--)
+        a[i] = a[i-1];
+
+    a[pos-1] = value; 
+    n++; // we increase n(size here because Because we need n to represent the current size during shifting; increasing it before would make the loop access an invalid index.)
+
+    printf("Array after insertion:\n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+    return 0;
+}
+//calculating the sum og given elements in an array without initialization size
+#include <stdio.h>
+
+int main() {
+    int a[] = {1, 2, 3, 4};
+    int sum = 0;
+
+    int n = sizeof(a) / sizeof(a[0]); // calculate number of elements
+
+    for (int i = 0; i < n; i++) {
+        sum += a[i];
+    }
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+//
+
+
