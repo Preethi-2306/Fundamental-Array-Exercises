@@ -51,6 +51,80 @@ int main() {
     return 0;
 }
 
+// DELETION OF AN ELEMENT FROM AN ARRAY
+#include <stdio.h>
+
+int main() {
+    int a[100], n, pos;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter position to delete (1 to %d): ", n);
+    scanf("%d", &pos);
+
+    if (pos < 1 || pos > n) {
+        printf("Invalid position!\n");
+    } else {
+        // shift elements left from pos
+        for (int i = pos - 1; i < n - 1; i++)
+            a[i] = a[i + 1];
+
+        n--; // decrease size because one element deleted
+
+        printf("Array after deletion:\n");
+        for (int i = 0; i < n; i++)
+            printf("%d ", a[i]);
+    }
+
+    return 0;
+}
+
+//DELETION OF AN ELEMENT IN AN ARRAY NOT BY POSTION BUT DIRECTLY GIVING THE ELEMENT TO BE DELETED
+#include <stdio.h>
+
+int main() {
+    int a[100], n, value,pos=-1;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter value  to be deleted (1 to %d): ", n);
+    scanf("%d", &value);
+    
+    for(int i=0;i<n;i++){
+        if(a[i]==value){
+            pos=i;
+            break;
+        }
+    }
+
+    if (pos==-1) {
+        printf("element not founf!\n");
+    } else {
+        
+        for (int i = pos ; i < n - 1; i++) //shift elements left from pos
+
+            a[i] = a[i + 1];
+
+        n--; // decrease size because one element deleted
+
+        printf("Array after deletion:\n");
+        for (int i = 0; i < n; i++)
+            printf("%d ", a[i]);
+    }
+
+    return 0;
+}
+
 //calculating the sum og given elements in an array without initialization size
 #include <stdio.h>
 
@@ -94,6 +168,30 @@ int main() {
     return 0;
 }
 
-//
+// CALCULATING THE SUM OF DIGITS IN AN ARRAY AND STORING IT IN ANOTHER ELEMENT
+#include <stdio.h>
+int main() {
+    int a[3] = {123, 234, 456};
+    int b[3] = {};
+
+    for(int i = 0; i < 3; i++) {
+        int num = a[i];
+        int sum = 0;
+        while(num > 0) {
+            int digit = num % 10;
+            sum += digit;
+            num /= 10;
+        }
+        b[i] = sum;  // store sum into second array
+        printf("num is:%d, sum is:%d\n", a[i], sum);
+    }
+    printf("\nElements stored in b[]: ");
+    for(int i = 0; i < 3; i++) //for printing the elements stored on the second array
+    {
+        printf("%d ", b[i]);
+    }
+
+    return 0;
+}
 
 
