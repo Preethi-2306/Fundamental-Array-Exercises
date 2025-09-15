@@ -125,6 +125,76 @@ int main() {
     return 0;
 }
 
+// PRINTING IN REVERSING ORDER JUST IT WILL REVERSE THE ORDER IN ARRAY LIKE PRINTING THE NTH ELEMENT FIRST EXAMPLE IF UR PRINTING THE ARRAY AFTER UR REVERSE LOGIC AND TRY TO PRINT THE ORIGINAL ARRAY
+#include <stdio.h>
+int main() {
+    int a[100],n;
+   printf("ENter SIZEOF THE ARRAY:");
+   scanf("%d",&n);
+   printf("ENter elements OF THE ARRAY:\n");
+    for (int i = 0; i < n ; i++) {
+       scanf("%d",&a[i]);
+    }
+    printf("\nReversed ORDER: ");
+    for (int i =n-1; i >=0; i--) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+//REVERSING THE ELEMENTS IN THE ARRAY[two pointer approach:
+each swap operation handles two elements: one from the beginning and one from the end. 
+By the time the pointers meet in the middle, 
+every element in the first half of the array has been swapped with its corresponding element in the second half.]:-
+#include <stdio.h>
+int main() {
+    int a[100], n, i, j;
+    printf("Enter SIZE OF THE ARRAY: ");
+    scanf("%d", &n);
+
+    printf("Enter elements OF THE ARRAY:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    // array reverse logic
+    for (i = 0, j = n - 1; i < j; i++, j--) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    printf("\nReversed array: ");
+    for (i = 0; i < n; i++) {
+        printf("\na[%d]=%d ", i, a[i]);
+    }
+    return 0;
+}
+
+// SWAPPING ONLY THE HALF ARRAY THE REST OF THE ARRAY SHOULD REMAIN UNTOUCHED:-
+#include <stdio.h>
+int main() {
+    int a[100], n, i;
+    printf("Enter SIZE OF THE ARRAY: ");
+    scanf("%d", &n);
+
+    printf("Enter elements OF THE ARRAY:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    // Swapping the first half of the array with the second half
+    int j;
+    for (i = 0, j = n / 2; i < n / 2; i++, j++) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+        printf("\nPartially swapped array: ");
+        for (i = 0; i < n; i++) {
+        printf("\na[%d]=%d ", i, a[i]);
+    }
+    return 0;
+}
 //calculating the sum og given elements in an array without initialization size
 #include <stdio.h>
 
@@ -140,6 +210,19 @@ int main() {
     printf("Sum = %d\n", sum);
     return 0;
 }
+OUTPUT :-Enter SIZE OF THE ARRAY: 5
+Enter elements OF THE ARRAY:
+7
+6
+8
+4
+9
+Partially swapped array: 
+a[0]=8 
+a[1]=4 
+a[2]=7 
+a[3]=6 
+a[4]=9 
 
 //To know the smallest and largest in an array using (sizeof)
 #include <stdio.h>
